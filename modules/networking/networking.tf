@@ -1,3 +1,4 @@
+#Vpc Creation
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "~> 3.0"
@@ -14,7 +15,7 @@ module "vpc" {
   create_flow_log_cloudwatch_log_group = true
 }
 
-
+#security group for rds postgres
 module "security_group"  {
   source  = "terraform-aws-modules/security-group/aws"
   version = "~> 4.0"
@@ -34,23 +35,3 @@ module "security_group"  {
     },
   ]
 }
-
-# module "security_group"  {
-#   source  = "terraform-aws-modules/security-group/aws"
-#   version = "~> 4.0"
-
-#   name        = "postgresql"
-#   description = "PostgreSQL security group"
-#   vpc_id      = module.vpc.vpc_id
-
-#   # ingress
-#   ingress_with_cidr_blocks = [
-#     {
-#       from_port   = 5432
-#       to_port     = 5432
-#       protocol    = "tcp"
-#       description = "lambda access from within VPC"
-#       cidr_blocks = module.vpc.vpc_cidr_block
-#     },
-#   ]
-# }

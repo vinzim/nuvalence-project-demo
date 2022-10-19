@@ -12,7 +12,7 @@ resource "aws_db_instance" "database" {
   engine_version       = "14.4"
   instance_class       = var.database_instance
   username             = var.db_admin_user
-  password             = jsondecode(data.aws_secretsmanager_secret_version.current.secret_string)["db_pass"]
+  password             = jsondecode(data.aws_secretsmanager_secret_version.current.secret_string)["admin_db_pass"]
   skip_final_snapshot  = true
   allow_major_version_upgrade = false
   storage_encrypted = true
