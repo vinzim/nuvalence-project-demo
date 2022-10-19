@@ -86,14 +86,14 @@ resource "aws_route53_health_check" "api_gateway" {
   depends_on = [
     aws_apigatewayv2_api.user_uploads_api, aws_apigatewayv2_integration.lambda
   ]
-  fqdn              = "${replace(aws_apigatewayv2_api.user_uploads_api.api_endpoint,"https://","")}"
-  port              = 80
-  type              = "HTTPS"
-  resource_path     = "nuvalence_lambda_stage/health"
-  failure_threshold = "5"
-  request_interval  = "30"
+  fqdn                  = replace(aws_apigatewayv2_api.user_uploads_api.api_endpoint, "https://", "")
+  port                  = 80
+  type                  = "HTTPS"
+  resource_path         = "nuvalence_lambda_stage/health"
+  failure_threshold     = "5"
+  request_interval      = "30"
   cloudwatch_alarm_name = aws_cloudwatch_metric_alarm.api_gateway_status.alarm_name
-  reference_name = "${aws_apigatewayv2_api.user_uploads_api.name}"
+  reference_name        = aws_apigatewayv2_api.user_uploads_api.name
 }
 
 resource "aws_cloudwatch_metric_alarm" "api_gateway_status" {
@@ -106,6 +106,6 @@ resource "aws_cloudwatch_metric_alarm" "api_gateway_status" {
   statistic           = "Minimum"
   threshold           = "1.0"
   alarm_description   = "monitors api_gateway"
-  alarm_actions = [var.alert_topic]
-  ok_actions    = [var.alert_topic]
+  alarm_actions       = [var.alert_topic]
+  ok_actions          = [var.alert_topic]
 }

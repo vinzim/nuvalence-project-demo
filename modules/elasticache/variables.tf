@@ -5,5 +5,5 @@ variable "elasticache_subnet_group_name" {
 
 variable "alert_topic" {
   description = "Alert Topic ARN"
-  type = string
+  type        = string
 }

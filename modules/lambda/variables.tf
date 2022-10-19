@@ -15,5 +15,5 @@ variable "database_user" {
 
 variable "environment" {
   description = "Environment to Deploy to"
-  type = string
+  type        = string
 }
