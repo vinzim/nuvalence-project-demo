@@ -17,7 +17,7 @@
 
 ## Set up the Postgres Table and User
 - Allow your IP address on the Postgres Security Group for access to the postgres server. 
-  - TODO: create an EC2 to run the postgres script. That calls the secrets manager variables and imports them into the script
+  - TODO: create a lambda to run the postgres script. That calls the secrets manager variables and imports them into the script
 - Export the admin password as PGPASSWORD
 - Copy the Password from /ENV/database/nuvalence with the key/value dbpass:PASSWORD for the user password and update postgres.sql with it
 - Run the command:
