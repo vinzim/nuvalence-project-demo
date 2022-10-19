@@ -53,7 +53,7 @@ resource "aws_lambda_function" "nuvalence_test" {
       db_pass = jsondecode(data.aws_secretsmanager_secret_version.current_db.secret_string)["db_pass"]
       api_key = jsondecode(data.aws_secretsmanager_secret_version.current_api.secret_string)["api_key"]
     }
-}
+  }
 }
 
 #healthcheck lambda
@@ -76,7 +76,7 @@ resource "aws_lambda_function" "healthcheck" {
       db_pass = jsondecode(data.aws_secretsmanager_secret_version.current_db.secret_string)["db_pass"]
       api_key = jsondecode(data.aws_secretsmanager_secret_version.current_api.secret_string)["api_key"]
     }
-}
+  }
 }
 
 #Logging

@@ -1,16 +1,16 @@
 variable "lambda_function" {
-    description = "lambda function details"
+  description = "lambda function details"
 }
 
 variable "lambda_exec" {
-    description = "lambda execution details"
+  description = "lambda execution details"
 }
 
 variable "alert_topic" {
   description = "Alert Topic ARN"
-  type = string
+  type        = string
 }
 
 variable "health_function" {
-    description = "health function details"
+  description = "health function details"
 }

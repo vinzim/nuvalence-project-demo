@@ -6,23 +6,23 @@ data "aws_secretsmanager_secret_version" "current" {
 }
 
 resource "aws_db_instance" "database" {
-  allocated_storage    = 50
-  db_name              = var.db_name
-  engine               = "postgres"
-  engine_version       = "14.4"
-  instance_class       = var.database_instance
-  username             = var.db_admin_user
-  password             = jsondecode(data.aws_secretsmanager_secret_version.current.secret_string)["admin_db_pass"]
-  skip_final_snapshot  = true
-  allow_major_version_upgrade = false
-  storage_encrypted = true
-  vpc_security_group_ids = [var.security_group_id]
-  maintenance_window = var.maintenance_window
-  backup_window = var.backup_window
-  backup_retention_period = var.backup_retention_period
-  db_subnet_group_name = var.db_subnet_group_name
-  enabled_cloudwatch_logs_exports = ["postgresql", "upgrade"]
-  deletion_protection     = false
+  allocated_storage                     = 50
+  db_name                               = var.db_name
+  engine                                = "postgres"
+  engine_version                        = "14.4"
+  instance_class                        = var.database_instance
+  username                              = var.db_admin_user
+  password                              = jsondecode(data.aws_secretsmanager_secret_version.current.secret_string)["admin_db_pass"]
+  skip_final_snapshot                   = true
+  allow_major_version_upgrade           = false
+  storage_encrypted                     = true
+  vpc_security_group_ids                = [var.security_group_id]
+  maintenance_window                    = var.maintenance_window
+  backup_window                         = var.backup_window
+  backup_retention_period               = var.backup_retention_period
+  db_subnet_group_name                  = var.db_subnet_group_name
+  enabled_cloudwatch_logs_exports       = ["postgresql", "upgrade"]
+  deletion_protection                   = false
   performance_insights_enabled          = var.monitoring_enabled
   performance_insights_retention_period = var.monitoring_enabled ? 7 : null
 }

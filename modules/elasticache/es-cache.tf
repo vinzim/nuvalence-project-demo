@@ -12,7 +12,7 @@ resource "aws_elasticache_cluster" "rds_cache" {
     log_format       = "text"
     log_type         = "slow-log"
   }
-   log_delivery_configuration {
+  log_delivery_configuration {
     destination      = aws_cloudwatch_log_group.nuvalence_eslog.name
     destination_type = "cloudwatch-logs"
     log_format       = "text"
@@ -21,7 +21,7 @@ resource "aws_elasticache_cluster" "rds_cache" {
 }
 
 resource "aws_cloudwatch_log_group" "nuvalence_eslog" {
-  name = "/aws/elasticache/"
+  name              = "/aws/elasticache/"
   retention_in_days = 7
 }
 

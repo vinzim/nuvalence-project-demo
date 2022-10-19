@@ -10,48 +10,48 @@ variable "Organization" {
 
 variable "database_instance" {
   description = "Instance used for the database"
-  type = string
+  type        = string
 }
 
 variable "environment" {
   description = "Environment to Deploy to"
-  type = string
+  type        = string
 }
 
 variable "database_password" {
-    description = "password for database"
-    type = string
-    sensitive = true
+  description = "password for database"
+  type        = string
+  sensitive   = true
 }
 
 variable "maintenance_window" {
   description = "Maintenance Window (RDS)"
-  type = string
+  type        = string
 }
 
 variable "backup_window" {
   description = "Backup Window (RDS)"
-  type = string
+  type        = string
 }
 
 variable "backup_retention_period" {
   description = "Days to keep RDS Backups"
-  type = number
+  type        = number
 }
 
 variable "db_name" {
   description = "database Name"
-  type = string
+  type        = string
 }
 
 variable "db_admin_user" {
   description = "database administrator name"
-  type = string
+  type        = string
 }
 
 variable "database_user" {
   description = "database user name"
-  type = string
+  type        = string
 }
 
 variable "lambda_bucket" {
@@ -59,16 +59,16 @@ variable "lambda_bucket" {
   type        = string
 }
 
-variable "monitoring_enabled"{
-    description = "RDS Enhanced Monitoring"
-    type = bool
+variable "monitoring_enabled" {
+  description = "RDS Enhanced Monitoring"
+  type        = bool
 }
 
 variable "alerting_email" {
-    description = "email for alerts"
+  description = "email for alerts"
 }
 
 variable "max_connections" {
   description = "Number of max connections for alerting"
-  type = number
+  type        = number
 }
